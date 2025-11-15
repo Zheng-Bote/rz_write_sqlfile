@@ -1,10 +1,5 @@
 #include "includes/rz_write_sqlfile.hpp"
-#include "includes/rz_config.h"
-
-const QString PLUGIN_SHORTNAME = PROG_EXEC_NAME;
-const QString PLUGIN_NAME = PROG_NAME;
-const QString PLUGIN_VERSION = PROG_VERSION;
-const QString PLUGIN_DESCRIPTION = PROG_DESCRIPTION;
+#include "includes/rz_config.hpp"
 
 Rz_writeSQLfile::Rz_writeSQLfile(QObject *parent)
 {
@@ -15,22 +10,25 @@ Rz_writeSQLfile::~Rz_writeSQLfile() {}
 
 QString Rz_writeSQLfile::getPluginNameShort()
 {
-    return PLUGIN_SHORTNAME;
+    return project_name.c_str();
 }
 
 QString Rz_writeSQLfile::getPluginNameLong()
 {
-    return PLUGIN_NAME;
+    return prog_longname.c_str();
 }
 
 QString Rz_writeSQLfile::getPluginVersion()
 {
-    return PLUGIN_NAME + "-v" + PLUGIN_VERSION;
+    QString v = project_name.c_str();
+    v.append("-v");
+    v.append(project_version.c_str());
+    return v;
 }
 
 QString Rz_writeSQLfile::getPluginDescription()
 {
-    return PLUGIN_DESCRIPTION;
+    return project_description.c_str();
 }
 
 std::tuple<bool, std::string> Rz_writeSQLfile::parseFile(QMap<QString, QString> &configMap,
