@@ -11,23 +11,23 @@
 #pragma once
 
 #include <cstdint>
-#include <string>
+#include <string_view>
 
-static const std::string project_name = "rz_write_sqlfile";
-static const std::string prog_longname = "write SQL-File";
-static const std::string project_description = "Plugin to export Metadata to sql file";
+static constexpr std::string_view project_name = "rz_write_sqlfile";
+static constexpr std::string_view prog_longname = "write SQL-File";
+static constexpr std::string_view project_description = "Plugin to export Metadata to sql file";
 
-static const std::string project_executable = "rz_write_sqlfile";
+static constexpr std::string_view project_executable = "rz_write_sqlfile";
 
-static const std::string project_version = "0.2.0";
-static const std::int32_t project_version_major{0};
-static const std::int32_t project_version_minor{2};
-static const std::int32_t project_version_patch{0};
+static constexpr std::string_view project_version = "0.4.0";
+static constexpr std::int32_t project_version_major{0};
+static constexpr std::int32_t project_version_minor{4};
+static constexpr std::int32_t project_version_patch{0};
 
-static const std::string project_homepage = "https://github.com/Zheng-Bote/rz_write_sqlfile";
-static const std::string project_author = "ZHENG Bote";
-static const std::string project_organization_name = "ZHENG Robert";
-static const std::string project_organization_domain = "net.hase-zheng";
+static constexpr std::string_view project_homepage = "https://github.com/Zheng-Bote/rz_write_sqlfile";
+static constexpr std::string_view project_author = "ZHENG Bote";
+static constexpr std::string_view project_organization_name = "ZHENG Robert";
+static constexpr std::string_view project_organization_domain = "net.hase-zheng";
 
-static const std::string cpp_standard_version = "c++23";
-static const std::string cpp_compiler = "Clang 20.1.8";
+static constexpr std::string_view cpp_standard_version = "c++23";
+static constexpr std::string_view cpp_compiler = "Clang 20.1.8";

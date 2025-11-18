@@ -6,10 +6,10 @@
 #include <QObject>
 #include <QRegularExpression>
 #include <QtPlugin>
+#include <format>
 
+#include "rz_config.hpp"
 #include "rz_photo-gallery_plugins.hpp"
-
-#include "sqlite3.hpp"
 
 class Rz_writeSQLfile : public QObject, public Plugin
 {
@@ -44,11 +44,7 @@ public:
 private:
     bool oknok{false};
     std::string msg{"blank"};
-
-    SQLite3 metaDb;
-
-    std::tuple<bool, std::string> openDefaultMetaDb(QString &pathToSQLiteDb);
-    std::tuple<bool, std::string> setDefaultMetaKeys();
+    QString debugMsg{"blank"};
 
     QHash<QString, QString> exifMetaTags;
     QHash<QString, QString> iptcMetaTags;
@@ -58,6 +54,24 @@ private:
     std::tuple<bool, std::string> createSQLfiles(
         const QString pathToSqlFilesFolder = "./SQL-Files");
 
-    std::tuple<bool, std::string> isTargetExist(const QFile &pathToTarget, const QString type);
+    std::tuple<bool, std::string> createPhotoTable(
+        const QString pathToSqlFilesFolder);
+    std::tuple<bool, std::string> createExifTable(
+        const QString &pathToSqlFilesFolder);
+    std::tuple<bool, std::string> createIptcTable(
+        const QString &pathToSqlFilesFolder);
+    std::tuple<bool, std::string> createXmpTable(
+        const QString &pathToSqlFilesFolder);
+    void writeFile(QString &file, QString &content);
+
+    std::tuple<bool, std::string> writeExifData(
+        const QString &pathToSqlFilesFolder);
+    std::tuple<bool, std::string> writeIptcData(
+        const QString &pathToSqlFilesFolder);
+    std::tuple<bool, std::string> writeXmpData(
+        const QString &pathToSqlFilesFolder);
+
+    std::tuple<bool, std::string> isTargetExist(const QFile &pathToTarget,
+                                                const QString &type);
     std::tuple<bool, std::string> createDirectories(const std::filesystem::path &p) noexcept;
 };

@@ -1,0 +1,33 @@
+/**
+ * @file config.hpp.in
+ * @author ZHENG Robert (robert.hase-zheng.net)
+ * @brief configuration
+ * @version 2.0.0
+ * @date 2025-11-15
+ * 
+ * @copyright Copyright (c) 2025 ZHENG Robert
+ * 
+ */
+#pragma once
+
+#include <cstdint>
+#include <string_view>
+
+static constexpr std::string_view project_name = "@PROJECT_NAME@";
+static constexpr std::string_view prog_longname = "${PROG_LOGNAME}";
+static constexpr std::string_view project_description = "@PROJECT_DESCRIPTION@";
+
+static constexpr std::string_view project_executable = "@EXECUTABLE_NAME@";
+
+static constexpr std::string_view project_version = "@PROJECT_VERSION@";
+static constexpr std::int32_t project_version_major{@PROJECT_VERSION_MAJOR@};
+static constexpr std::int32_t project_version_minor{@PROJECT_VERSION_MINOR@};
+static constexpr std::int32_t project_version_patch{@PROJECT_VERSION_PATCH@};
+
+static constexpr std::string_view project_homepage = "@PROJECT_HOMEPAGE_URL@";
+static constexpr std::string_view project_author = "${PROG_AUTHOR}";
+static constexpr std::string_view project_organization_name = "${PROG_ORGANIZATION_NAME}";
+static constexpr std::string_view project_organization_domain = "${PROG_ORGANIZATION_DOMAIN}";
+
+static constexpr std::string_view cpp_standard_version = "c++${CMAKE_CXX_STANDARD}";
+static constexpr std::string_view cpp_compiler = "${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}";

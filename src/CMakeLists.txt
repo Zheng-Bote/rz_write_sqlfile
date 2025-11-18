@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.23)
 
 project(
     rz_write_sqlfile
-    VERSION 0.2.0
+    VERSION 0.4.0
     DESCRIPTION "Plugin to export Metadata to sql file"
     HOMEPAGE_URL "https://github.com/Zheng-Bote/rz_write_sqlfile"
     LANGUAGES CXX)
@@ -92,12 +92,9 @@ qt_standard_project_setup()
 add_library(
     ${PROJECT_NAME} SHARED
     rz_write_sqlfile.cpp
+    includes/rz_config.hpp
     includes/rz_write_sqlfile.hpp
-    includes/rz_photo-gallery_plugins.hpp
-    includes/database.cpp
-    includes/database.hpp
-    includes/sqlite3.cpp
-    includes/sqlite3.hpp)
+    includes/rz_photo-gallery_plugins.hpp)
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core Qt6::Sql)
