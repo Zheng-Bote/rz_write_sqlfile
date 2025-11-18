@@ -55,7 +55,7 @@ private:
         const QString pathToSqlFilesFolder = "./SQL-Files");
 
     std::tuple<bool, std::string> createPhotoTable(
-        const QString pathToSqlFilesFolder);
+        const QString &pathToSqlFilesFolder);
     std::tuple<bool, std::string> createExifTable(
         const QString &pathToSqlFilesFolder);
     std::tuple<bool, std::string> createIptcTable(
